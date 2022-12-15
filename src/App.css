@@ -1,38 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --header-editor: #F72585;
+  --header-preview: #7209B7;
+  --background-col: #4CC9F0;
+  /*--editor-high-col: #735cdd;*/
+  --editor-a-col: #fde7f1;
+  /*--preview-high-col: #9000b3;*/
+  --preview-a-col: #eeddf9;
+  --comp-col: #3A0CA3;
+  --text-light-col: #ffffff;
+  --text-dark-col: #000000;
+  --font-editor: 'Roboto Mono', monospace;
+  --font-preview: 'Merriweather', serif;
+  
+  
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: var(--background-col);
+  font-family: ver(--font-preview);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  margin: 10px 0;
+  color: var(--text-dark-col);
+}
+h1 {
+  font-size: 4rem;
+  font-weight: bold; 
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App > h1 {
+  margin: 25px 0;
+  padding: 20px 0px;
+  font-size: 8rem;
+  color: var(--text-light-col);
+  text-shadow: 0 0 4px var(--comp-col), 0 0 4px var(--comp-col), 0 0 4px var(--comp-col), 0 0 4px var(--comp-col);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  width: 95%;
+  margin: 0 auto;
+  
+}
+
+.main > section{
+  flex: 400px;
+}
+
+
+.editorContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: 5px 5px 10px var(--comp-col);
+  border-left: 3px solid var(--header-editor);
+  border-bottom: 3px solid var(--header-editor);
+  border-right: 3px solid var(--header-editor);
 }
 
-.App-link {
-  color: #61dafb;
+.editorContainer .sectionHeader {
+  background-color: var(--header-editor);
+  font-weight: 700;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.previewContainer{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 20px 20px 0px 0px;
+  border-left: 3px solid var(--header-preview);
+  border-bottom: 3px solid var(--header-preview);
+  border-right: 3px solid var(--header-preview);
+  box-shadow: 5px 5px 10px var(--comp-col);
+  overflow-wrap: break-word;
+  
 }
+
+.previewContainer .sectionHeader {
+  background-color: var(--header-preview);
+  font-weight: 700;
+}
+
+.sectionHeader{
+  
+  color: var(--text-light-col);
+  font-size: 2rem;
+  border-radius: 20px 20px 0 0;
+  padding: 0.3rem;
+  box-shadow: 3px 3px 8px var(--comp-col);
+  
+}
+textarea{
+  height: 100%;
+  padding: 10px;
+  margin-bottom: -5px;
+  font-family: var(--font-editor);
+  font-weight: 400;
+  font-size: 1.1rem;
+  background: linear-gradient(to bottom, var(--editor-a-col) 90%, var(--header-editor) 97%);
+  overflow-y: scroll;
+}
+#preview{
+  height: 100%;
+  padding: 0 1rem 3rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: var(--font-preview);
+  text-align: left;
+  background: linear-gradient(to bottom, var(--preview-a-col) 90%, var(--header-preview) 97%);
+  overflow-y: auto;
+  
+}
+#preview p {
+  padding: 1rem 0;
+}
+
+#preview > p > code {
+  padding: 3px;
+  background: white;
+}
+
+#preview code {
+  background: black;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#preview pre {
+  display: block;
+  overflow: auto;
+  background: black;
+  padding: 5px;
+  line-height: 1.2;
+}
+#preview blockquote{
+  border-left: solid 4px var(--comp-col) ;
+  color: #4361EE;
+  padding-left: 10px;
+  margin-left: 25px;
+}
+#preview h1 {
+  border-bottom: 2px solid var(--comp-col);
+}
+#preview h2 {
+  padding: .8rem 0;
+}
+#preview img{
+  display: block;
+  max-width: 90%;
+  margin: 2rem auto;
+
+}
+
+
+
